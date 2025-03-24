@@ -7,15 +7,19 @@ import 'package:toktik/screens/discover/discover_screen.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'TokTik',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme().getTheme(),
-      home: ChangeNotifierProvider(
-        create: (_) => DiscoverProvider()..loadNextPage(),
-        child: const DiscoverScreen(),
+    return SafeArea(
+      child: MaterialApp(
+        title: 'TokTik',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme().getTheme(),
+        home: ChangeNotifierProvider(
+          create: (_) => DiscoverProvider()..loadNextPage(),
+          child: const DiscoverScreen(),
+        ),
       ),
     );
   }
